@@ -10,7 +10,8 @@ A 12 V DC to 220 V AC square-wave inverter built around a 555 timer and two IRF3
 
 | Metric | Result |
 | --- | --- |
-| Output voltage | 241 V AC on the built-in panel voltmeter, with a bulb connected |
+| Power rating | 50 W by design (transformer and MOSFET heat sinking); tested with small loads |
+| Output voltage | ~240 V AC on the built-in panel voltmeter, with a bulb connected |
 | Loads powered | Light bulb, phone charger |
 | Frequency | 50 Hz by design, set with an on-board trimmer |
 | PCB | Single-sided, 112 mm wide, passed Proteus design-rule and connectivity checks |
@@ -70,8 +71,16 @@ I redrew the board in Proteus for building and testing:
 | File | Purpose |
 | --- | --- |
 | `README.md` | This page |
+| `proteus/inverter_pcb.pdsprj` | Final PCB layout (Proteus 8.10 or later) |
 | `media/` | Board photo, test photos, PCB views and schematic |
 | `LICENSE-original-design` | Apache License 2.0 of the original circuit design |
+
+## Open it
+
+1. Install Proteus 8.10 or later.
+2. Open `proteus/inverter_pcb.pdsprj` to view or edit the PCB layout, or use its 3D viewer.
+
+No Proteus? The PCB views in `media/` show the full layout.
 
 ## Challenges and fixes
 
@@ -82,6 +91,7 @@ I redrew the board in Proteus for building and testing:
 
 - **Square-wave output:** fine for bulbs and chargers, but not for motors or sensitive electronics. A pure-sine design (SPWM) is the next step.
 - **The panel meter is not true-RMS,** so 241 V is an approximate reading for a square wave. Frequency, efficiency and maximum load were not measured.
+- **Verifying the 50 W rating** needs a 50–60 W resistive load, true-RMS output voltage and current readings, battery current (about 5 A expected at full load) and a sustained run while watching MOSFET temperature.
 - **No protection yet:** no low-battery cut-off, overload or short-circuit protection, and no battery charging (it is an inverter, not a UPS).
 
 ## Credits
