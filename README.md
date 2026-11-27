@@ -4,7 +4,7 @@ A 12 V DC to 220 V AC square-wave inverter built around a 555 timer and two IRF3
 
 **Built:** May 2025 · Electronics lab project
 
-<p align="center"><img src="media/board.jpg" width="380" alt="The soldered inverter board with screw terminals, NE555, BC547 and two IRF3205 MOSFETs on a shared heat sink"></p>
+<p align="center"><img src="media/board.jpg" width="560" alt="The soldered inverter board, seen from above with screw terminals, NE555, BC547 and two IRF3205 MOSFETs on a shared heat sink"></p>
 
 ## Results
 
