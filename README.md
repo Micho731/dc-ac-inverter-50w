@@ -10,10 +10,10 @@ A 12 V DC to 220 V AC square-wave inverter built around a 555 timer and two IRF3
 
 | Metric | Result |
 | --- | --- |
-| Power rating | 50 W by design (transformer and MOSFET heat sinking); tested with small loads |
-| Output voltage | ~240 V AC on the built-in panel voltmeter, with a bulb connected |
+| Power rating | 50 W by design (transformer and MOSFET heat sinking); tested with small loads only |
+| Output voltage | 241 V AC on the built-in panel voltmeter, with a bulb connected |
 | Loads powered | Light bulb, phone charger |
-| Frequency | 50 Hz by design, set with an on-board trimmer |
+| Frequency | 50 Hz by design, set with an on-board trimmer (not measured) |
 | PCB | Single-sided, 112 mm wide, passed Proteus design-rule and connectivity checks |
 
 | Output under load | Bulb powered from a 12 V battery |
@@ -48,6 +48,10 @@ flowchart LR
 | --- | --- |
 | ![3D view of the PCB](media/pcb_3d.png) | ![Copper side of the PCB layout, 111.76 mm wide](media/pcb_layout.png) |
 
+| Print mask: copper side, mirrored for transfer | Component side, used as a soldering guide |
+| --- | --- |
+| ![Black-and-white copper layer, mirrored for toner transfer onto the board](media/pcb_print_copper_mirrored.png) | ![Black-and-white component-side layout with part labels](media/pcb_print_component_side.png) |
+
 I redrew the board in Proteus for building and testing:
 - **Screw terminals** (9 in total) for battery, on/off switch, transformer center tap and ends, live, neutral and output, so the transformer and loads connect without soldering.
 - **A 100 kΩ trimmer (RV1)** in the timing network, to tune the output to 50 Hz on the real board.
@@ -71,14 +75,18 @@ I redrew the board in Proteus for building and testing:
 | File | Purpose |
 | --- | --- |
 | `README.md` | This page |
-| `proteus/inverter_pcb.pdsprj` | Final PCB layout (Proteus 8.10 or later) |
+| `proteus/inverter_schematic.pdsprj` | Schematic and simulation (based on the original design) |
+| `proteus/inverter_pcb.pdsprj` | Final PCB layout and 3D view |
 | `media/` | Board photo, test photos, PCB views and schematic |
 | `LICENSE-original-design` | Apache License 2.0 of the original circuit design |
 
 ## Open it
 
 1. Install Proteus 8.10 or later.
-2. Open `proteus/inverter_pcb.pdsprj` to view or edit the PCB layout, or use its 3D viewer.
+2. Open `proteus/inverter_schematic.pdsprj` for the schematic and simulation.
+3. Open `proteus/inverter_pcb.pdsprj` for the PCB layout and 3D view.
+
+The schematic and the PCB were saved as two separate Proteus projects, so each opens in its own view.
 
 No Proteus? The PCB views in `media/` show the full layout.
 
